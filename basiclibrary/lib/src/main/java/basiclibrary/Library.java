@@ -5,26 +5,26 @@ package basiclibrary;
 
 public class Library {
     public static void main(String[] args) {
-        int[] test=roll(4);
-        for (int i=0 ; i<4 ; i++)
-        {
-            System.out.println(test[i]);  //print 4 random numbers from 1 to 6
-        }
+//        int[] test=roll(4);
+//        for (int i=0 ; i<4 ; i++)
+//        {
+//            System.out.println(test[i]);  //print 4 random numbers from 1 to 6
+//        }
 
-        int[] ar={1,2,3,3,5}; //it will print true
-        int[] ar2={1,2,3,4,5}; //it will print false
-        boolean test2=containsDuplicates(ar);
-        System.out.println(test2);
+//        int[] ar={1,2,3,3,5}; //it will print true
+//        int[] ar2={1,2,3,4,5}; //it will print false
+//        boolean test2=containsDuplicates(ar);
+//        System.out.println(test2);
 
 //        int[] ar={1,41,17,10,5};
 //        double test4=calculateAvarage(ar);
 //        System.out.println(test4);  //it will print the avarage of ar array =14.8
 
-        int[] test3=arrayOfArrays();
-        for (int i=0 ; i<test3.length ; i++)
-        {
-            System.out.println(test3[i]);   //it will print the array that have lowest avarage
-        }
+//        int[] test3=arrayOfArrays();
+//        for (int i=0 ; i<test3.length ; i++)
+//        {
+//            System.out.println(test3[i]);   //it will print the array that have lowest avarage
+//        }
 
     }
     public boolean someLibraryMethod() {
