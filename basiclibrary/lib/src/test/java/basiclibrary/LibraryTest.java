@@ -11,4 +11,47 @@ class LibraryTest {
         Library classUnderTest = new Library();
         assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
     }
+    @Test void rollTest(){
+        Library underTest=new Library();
+        int[] test=underTest.roll(4);
+        assertEquals(4,test.length);
+
+        int[] dice={1,2,3,4,5,6};
+        boolean flag=false;
+        for (int i = 0; i < test.length; i++) {
+            for (int j = 0; j < dice.length; j++) {
+                if(test[i]==dice[j])
+                {
+                    flag=true;
+                }
+            }
+
+        }
+        assertEquals(true,flag);
+    }
+
+    @Test void containsDuplicatesTest(){
+        Library underTest=new Library();
+        int[] ary={1,2,3,3,5};
+        boolean test2=underTest.containsDuplicates(ary);
+        assertEquals(true,test2);
+    }
+
+    @Test void calculateAvarageTest(){
+        Library underTest=new Library();
+        int[] ar={1,41,17,10,5};
+        double test4=underTest.calculateAvarage(ar);
+        assertEquals(14.8,test4);
+    }
+
+    @Test void arrayOfArraysTest(){
+        Library underTest=new Library();
+        int[] test3=underTest.arrayOfArrays();
+        int[] ary2={55, 54, 60, 53, 59, 57, 61};
+        assertEquals(7,test3.length);
+        for (int i=0 ; i<test3.length ; i++)
+        {
+            assertEquals(ary2[i],test3[i]);
+        }
+    }
 }
