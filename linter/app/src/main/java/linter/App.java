@@ -17,8 +17,7 @@ public class App {
     }
     public static void readFile(){
         int c=0;
-        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        InputStream lines = classloader.getResourceAsStream("gates.js");
+        File lines = new File("gates.js");
         try(Scanner scanner=new Scanner(lines)) {
 
             while (scanner.hasNextLine()) {
@@ -49,4 +48,5 @@ public class App {
         catch (Exception e){
             System.err.println(e.getMessage());
     }
-}}
+}
+}
