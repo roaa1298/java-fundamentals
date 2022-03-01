@@ -3,10 +3,6 @@
  */
 package linter;
 import java.io.*;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class App {
