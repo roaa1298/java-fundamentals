@@ -20,24 +20,20 @@ public class App {
         readFile();
     }
     public static void readFile(){
-        File file=new File("gates.js");
-        HashSet<String> gateFile=new HashSet<>();
         int c=0;
-        try(Scanner scanner=new Scanner(file)) {
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        InputStream lines = classloader.getResourceAsStream("gates.js");
+        try(Scanner scanner=new Scanner(lines)) {
 
             while (scanner.hasNextLine()) {
-
-                gateFile.add(scanner.nextLine());
-            }
-            String[] gateStr= gateFile.toArray(new String[gateFile.size()]);
-            for (int i = 0; i < gateStr.length; i++) {
+                String lineG=scanner.nextLine();
                 c++;
-                if(!gateStr[i].contains(";")){
-                    if(!gateStr[i].contains("{")){
-                        if(!gateStr[i].contains("}")){
-                            if(!gateStr[i].contains("if")){
-                                if(!gateStr[i].contains("else")){
-                                    if(!gateStr[i].isEmpty())
+                if(!lineG.contains(";")){
+                    if(!lineG.contains("{")){
+                        if(!lineG.contains("}")){
+                            if(!lineG.contains("if")){
+                                if(!lineG.contains("else")){
+                                    if(!lineG.isEmpty())
                                     {
                                         System.out.println( "Line "+c+": Missing semicolon." );
                                     }
@@ -53,9 +49,8 @@ public class App {
                 }
 
             }
-        }catch (FileNotFoundException fileNotFoundException){
-
-            System.err.println(fileNotFoundException.getMessage());
         }
+        catch (Exception e){
+            System.err.println(e.getMessage());
     }
-}
+}}
