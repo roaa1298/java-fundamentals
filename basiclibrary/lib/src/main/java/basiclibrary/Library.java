@@ -73,7 +73,12 @@ public class Library {
         double[] avg=new double[weeklyMonthTemperatures.length];
         double min;
         for (int i=0 ; i<weeklyMonthTemperatures.length ; i++){
-            avg[i]=calculateAvarage(weeklyMonthTemperatures[i]);
+            double sum=0;
+            for (int j=0 ; j<weeklyMonthTemperatures[i].length ; j++)
+            {
+                sum+=weeklyMonthTemperatures[i][j];
+            }
+            avg[i]=sum/weeklyMonthTemperatures[i].length;
         }
         min=avg[0];
         int c=0;
