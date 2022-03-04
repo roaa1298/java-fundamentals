@@ -13,7 +13,7 @@ public class Main {
         System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCount) + ".");
 
 
-        flipNHeads(1);
+        flipNHeads(3);
         clock();
 
 
@@ -34,21 +34,18 @@ public class Main {
         int countHead=0;
         Random rand = new Random();
         float float_random;
-        while (true){
+        while (countHead<n){
             float_random=rand.nextFloat();
             if(float_random<0.5)
             {
                 System.out.println("tail");
-                count++;
             }
             else if(float_random>0.5)
             {
                 System.out.println("heads");
-                count++;
                 countHead++;
-                if(countHead==n)
-                    break;
             }
+            count++;
         }
         System.out.println("It took "+count+" flips to flip "+n+" heads in a row.");
     }
