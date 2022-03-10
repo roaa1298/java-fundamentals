@@ -42,4 +42,69 @@ class LibraryTest {
                 "[{Author: roaa, Body: nice, Number of stars: 3}, {Author: ali, Body: clean, Number of stars: 4}, {Author: Ahmad, Body: good, Number of stars: 2}, {Author: mary, Body: nice, Number of stars: 5}]";
         assertEquals(output, newRest.toString());
     }
+    @Test void shopInstanceTest(){
+        Shop newShop=new Shop("Bright Ideas Bookstore","book store",3);
+        String res="Shop{name='Bright Ideas Bookstore', description='book store', price=3, ShopReviews=[]}";
+        assertEquals(res,newShop.toString());
+    }
+    @Test void shopAddReviewTest(){
+        Shop newShop=new Shop("Bright Ideas Bookstore","book store",3);
+        newShop.addReview(new Review("nice","roaa",5));
+        newShop.addReview(new Review("good","ahmad",3));
+        String res="Shop{name='Bright Ideas Bookstore', description='book store', price=3, ShopReviews=[{Author: roaa, Body: nice, Number of stars: 5}, {Author: ahmad, Body: good, Number of stars: 3}]}";
+        assertEquals(res,newShop.toString());
+    }
+    @Test void theaterInstanceTest(){
+        Theater newTheater=new Theater("Movie Rise");
+        String res="Theater{name='Movie Rise', movies=[], reviews=[]}";
+        assertEquals(res,newTheater.toString());
+    }
+
+    @Test void TheaterMoviesReviewsTest(){
+        Theater newTheater=new Theater("Movie Rise");
+        newTheater.addMovie("batman");
+        newTheater.addMovie("spider man");
+        newTheater.addMovie("harry potter");
+
+        newTheater.addReview(new Review("nice","roaa",5));
+        newTheater.addReview(new Review("good","ahmad",3));
+
+        String res="Theater{name='Movie Rise', movies=[batman, spider man, harry potter], reviews=[{Author: roaa, Body: nice, Number of stars: 5}, {Author: ahmad, Body: good, Number of stars: 3}]}";
+        assertEquals(res,newTheater.toString());
+    }
+
+    @Test void TheaterMovieNameTest(){
+        Theater newTheater=new Theater("Movie Rise");
+        newTheater.addMovie("batman");
+        newTheater.addMovie("spider man");
+        newTheater.addMovie("harry potter");
+
+        newTheater.addReview(new Review("nice","roaa",5,"harry potter"));
+        newTheater.addReview(new Review("good","ahmad",3,"batman"));
+
+        String res="Theater{name='Movie Rise', movies=[batman, spider man, harry potter], reviews=[{Author: roaa, Body: nice, Number of stars: 5, movie name: harry potter}, {Author: ahmad, Body: good, Number of stars: 3, movie name: batman}]}";
+        assertEquals(res,newTheater.toString());
+    }
+
+    @Test void addMovieTest(){
+        Theater newTheater=new Theater("Movie Rise");
+        newTheater.addMovie("batman");
+        newTheater.addMovie("spider man");
+        newTheater.addMovie("harry potter");
+        newTheater.addMovie("super man");
+        assertEquals(4,newTheater.getMovies().size());
+    }
+    @Test void removeMovieTest(){
+        Theater newTheater=new Theater("Movie Rise");
+        newTheater.addMovie("batman");
+        newTheater.addMovie("spider man");
+        newTheater.addMovie("harry potter");
+        newTheater.addMovie("super man");
+
+        newTheater.removeMovie("batman");
+        assertEquals(3,newTheater.getMovies().size());
+    }
+
+
+
 }
