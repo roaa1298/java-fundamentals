@@ -2,12 +2,13 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Theater extends Manager {
+public class Theater extends Review {
+    private String name;
     private ArrayList<String> movies;
     private ArrayList<Review> reviews;
 
     public Theater(String name) {
-        super(name);
+        this.name=name;
         movies=new ArrayList<>();
         reviews=new ArrayList<>();
     }
@@ -17,6 +18,11 @@ public class Theater extends Manager {
         }
 
     }
+
+    public String getName() {
+        return name;
+    }
+
     public void removeMovie(String movie){
         movies.remove(movie);
     }
@@ -37,7 +43,6 @@ public class Theater extends Manager {
         return reviews;
     }
 
-    @Override
     public void addReview(Review rev) {
         reviews.add(rev);
     }
@@ -45,7 +50,7 @@ public class Theater extends Manager {
     @Override
     public String toString() {
         return "Theater{" +
-                "name='" + super.getName() + '\'' +
+                "name='" + this.name + '\'' +
                 ", movies=" + movies +
                 ", reviews=" + reviews +
                 '}';

@@ -3,13 +3,15 @@ package inheritance;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant extends Manager{
+public class Restaurant extends Review{
+    String name;
     int NumberOfStars;
     String price;
     ArrayList<Review> reviews;
 
     public Restaurant(String name,int NumberOfStars,String price){
-        super(name);
+        super();
+        this.name=name;
         if (NumberOfStars>=0 && NumberOfStars<=5)
         {
             this.NumberOfStars=NumberOfStars;
@@ -37,7 +39,6 @@ public class Restaurant extends Manager{
         this.NumberOfStars=avg;
     }
 
-    @Override
     public void addReview(Review rev) {
         reviews.add(rev);
         editStars();
@@ -45,7 +46,7 @@ public class Restaurant extends Manager{
 
     @Override
     public String toString(){
-        String str="Restaurant name: "+super.getName()+"\n"+"Number of stars: "+this.NumberOfStars+"\n"+"Price: "+this.price+"\n"+"Reviews:\n"+reviews;
+        String str="Restaurant name: "+this.name+"\n"+"Number of stars: "+this.NumberOfStars+"\n"+"Price: "+this.price+"\n"+"Reviews:\n"+reviews;
 
         return str;
     }
