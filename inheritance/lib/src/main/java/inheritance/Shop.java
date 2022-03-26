@@ -2,20 +2,24 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Shop extends Manager {
+public class Shop extends Review {
+    private String name;
     private String description;
     private int price;
     ArrayList<Review> ShopReviews;
 //    private int NumberOfStars=0;
 
     public Shop(String name, String description, int price){
-        super(name);
+        this.name=name;
         this.description=description;
         this.price=price;
         ShopReviews=new ArrayList<>();
 
     }
 
+    public String getName() {
+        return name;
+    }
 
     public void setDescription(String description) {
         this.description = description;
@@ -33,7 +37,7 @@ public class Shop extends Manager {
         return description;
     }
 
-    @Override
+
     public void addReview(Review rev) {
         ShopReviews.add(rev);
 //        editStars();
@@ -54,7 +58,7 @@ public class Shop extends Manager {
     @Override
     public String toString() {
         return "Shop{" +
-                "name='" + super.getName() + '\'' +
+                "name='" + this.name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", ShopReviews=" + ShopReviews +

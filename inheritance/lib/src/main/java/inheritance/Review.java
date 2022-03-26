@@ -18,6 +18,10 @@ public class Review {
         this.movieName=mov;
     }
 
+    public Review() {
+
+    }
+
     @Override
     public String toString() {
         String str;
